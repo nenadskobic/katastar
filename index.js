@@ -4,6 +4,12 @@ const fs = require('fs');
 
 let data = '';
 
+const args = process.argv.slice(2);
+
+const opstinaBroj = args[0]
+const opstinaIme = args[1]
+
+
 
 async function getData(plBroj, plSufix, opstina) {
 
@@ -229,8 +235,8 @@ async function print() {
 
 
 
-            if (invalidFor > 25) {
-                fs.appendFileSync('glamoc.html', data);
+            if (invalidFor > 5000) {
+                fs.appendFileSync(`docs/${opstinaBroj}.html`, data);
                 data = '';
                 invalidFor = 0;
                 break;
@@ -246,7 +252,7 @@ async function print() {
     }
 
     data += '</body></html>'
-    fs.appendFileSync('glamoc.html', data);
+    fs.appendFileSync(`docs/${opstinaBroj}.html`, data);
 
 }
 
