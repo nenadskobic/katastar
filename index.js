@@ -76,7 +76,7 @@ async function print() {
         for (let j = 1; j <= 9999; j++) {
 
             console.log(`Processing ${opstinaBroj} , ${opstinaIme} , mjesto: ${i} , plBroj: , ${j}`);
-            const currentData = await getData(j, `${opstinaBroj}0${formatTo2Numbers(i)}0000`, `${opstinaIme}&kat_opcina=${opstinaBroj}`);
+            const currentData = await getData(j, `${opstinaBroj}0${formatTo2Numbers(i)}0000`, `${opstinaIme}&kat_opcina=${i}`);
 
             const isInvalid = invalidData(currentData);
 
