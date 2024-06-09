@@ -68,8 +68,9 @@ function invalidData(str) {
 
 async function print() {
 
-    for (let i = 1; i < 61; i++) {
+    //for (let i = 1; i < 61; i++) {
 
+        const i = args[2];
         let invalidFor = 0;
         let resetPeriod = 0;
 
@@ -87,7 +88,7 @@ async function print() {
             }
 
 
-            if (invalidFor > 5000) {
+            if (invalidFor > 1000) {
                 writeFile(data);
                 data = '';
                 invalidFor = 0;
@@ -98,19 +99,18 @@ async function print() {
 
             if (!isInvalid) {
                 data += currentData;
+            }
 
-                ++resetPeriod;
+             ++resetPeriod;
 
-                if (resetPeriod > 50) {
+             if (resetPeriod > 50 && data != '') {
                     writeFile(data)
                     data = '';
                     resetPeriod = 0;
-                }
-
-            }
+              }
 
         }
-    }
+   // }
 
     data += '</body></html>'
     writeFile(data);
